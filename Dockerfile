@@ -32,7 +32,7 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 # Optional: Add labels for better container management
-LABEL maintainer="HHF Technology <your.email@domain.com>" \
+LABEL maintainer="HHF Technology <discourse@hhf.technology>" \
       org.opencontainers.image.title="Tailscale Sidecar with Certificate Sharing" \
       org.opencontainers.image.description="Tailscale container with automated certificate management" \
       org.opencontainers.image.version="1.0.0" \
