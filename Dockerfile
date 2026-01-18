@@ -1,5 +1,5 @@
 # Base Image
-FROM tailscale/tailscale:latest AS builder
+FROM tailscale/tailscale:stable AS builder
 
 #-----------------------------------------------------------------------------
 # Environment Configuration
@@ -32,8 +32,8 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 # Optional: Add labels for better container management
-LABEL maintainer="HHF Technology <discourse@hhf.technology>" \
+LABEL maintainer="PFun Digital Health <admin@pfun.me>" \
       org.opencontainers.image.title="Tailscale Sidecar with Certificate Sharing" \
       org.opencontainers.image.description="Tailscale container with automated certificate management" \
       org.opencontainers.image.version="1.0.0" \
-      org.opencontainers.image.source="https://github.com/hhftechnology/tailscale-sidecar"
+      org.opencontainers.image.source="https://github.com/pfun-health/tailscale-sidecar"

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 #-----------------------------------------------------------------------------
 # Tailscale Container Entrypoint Script
@@ -13,17 +13,17 @@
 # Environment Setup
 # Configure required Tailscale directories and authentication
 export TS_STATE_DIR=/var/lib/tailscale
-export TS_AUTHKEY=$TS_AUTHKEY
+export TS_AUTHKEY="${TS_AUTHKEY}"
 
 # Daemon Initialization
 # Start Tailscale in background with containerboot
 echo "[INFO] Initializing Tailscale daemon..."
-env TS_STATE_DIR="$TS_STATE_DIR" TS_AUTHKEY="$TS_AUTHKEY" /usr/local/bin/containerboot &
+env TS_STATE_DIR="${TS_STATE_DIR}" TS_AUTHKEY="${TS_AUTHKEY}" /usr/local/bin/containerboot &
 
 # Startup Delay
 # Ensure daemon is fully operational before proceeding
 echo "[INFO] Awaiting daemon initialization..."
-sleep 5  # Critical delay for daemon stability
+sleep 5 # Critical delay for daemon stability
 
 # Initial Certificate Setup
 # Generate first certificate before starting services

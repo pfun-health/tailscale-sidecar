@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 #-----------------------------------------------------------------------------
 # Tailscale Certificate Generation Script
@@ -16,7 +16,7 @@
 
 # Environment Validation
 # Check if domain name is configured
-if [ -z "$TS_DOMAIN_NAME" ]; then
+if [ -z "${TS_DOMAIN_NAME}" ]; then
    echo "[ERROR] Missing TS_DOMAIN_NAME environment variable"
    echo "[INFO] Please set TS_DOMAIN_NAME to your Tailscale domain"
    exit 1
@@ -31,7 +31,7 @@ if ! cd /certs/; then
 fi
 
 echo "[INFO] Requesting certificate from Tailscale..."
-if ! tailscale cert $TS_DOMAIN_NAME; then
+if ! tailscale cert "${TS_DOMAIN_NAME}"; then
    echo "[ERROR] Certificate generation failed"
    exit 1
 fi
